@@ -2,11 +2,15 @@ import React from "react";
 import ReactECharts from "echarts-for-react";
 
 const PieChart = () => {
+  const arrOne = ["0-3", "3-5", "5-7", "> 7"];
+  const arrTwo = [2800, 1600, 3200, 4000];
+  let lst = [];
+
+  for (let i = 0; i < arrOne.length; i++) {
+    lst.push({ name: arrOne[i], value: arrTwo[i] });
+  }
+
   const options = {
-    // title: {
-    //   text: "B633: Empty Bins by Aisle",
-    //   left: "center",
-    // },
     label: {
       formatter: "{c} \n {d}%",
     },
@@ -22,15 +26,7 @@ const PieChart = () => {
         name: "Pie demo",
         type: "pie",
         raduis: "50%",
-        data: [
-          { name: "Column 0", value: 820 },
-          { name: "Column 1", value: 932 },
-          { name: "Column 2", value: 901 },
-          { name: "Column 3", value: 934 },
-          { name: "Column 4", value: 1290 },
-          { name: "Column 5", value: 1330 },
-          { name: "Column 6", value: 1320 },
-        ],
+        data: lst,
         emphasis: {
           itemStyle: {
             shadowBlue: 10,
